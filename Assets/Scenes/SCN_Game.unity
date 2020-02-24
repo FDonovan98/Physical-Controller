@@ -176,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &111516595
 PrefabInstance:
@@ -189,6 +189,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402713877354509881, guid: 9218c4df08aa2ed4c9cc57b125e0cc2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402713877354509881, guid: 9218c4df08aa2ed4c9cc57b125e0cc2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5287329808170146515, guid: 9218c4df08aa2ed4c9cc57b125e0cc2f,
         type: 3}
@@ -285,7 +295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4213390522871599279, guid: 2a01e924e5a6bd54cb6305d1e11aefab, type: 3}
-  rotationBound: 10
 --- !u!135 &284596037
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -371,7 +380,7 @@ GameObject:
   - component: {fileID: 360036273}
   m_Layer: 0
   m_Name: SecondaryCam
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,7 +415,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 3
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: a894075e38cdc9348b937d13da6ddc06, type: 2}
   m_TargetDisplay: 0
@@ -426,12 +435,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360036272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.63, y: -19.78, z: -20.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1498625580}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &788922786
 PrefabInstance:
@@ -585,7 +594,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -18.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1447038844}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -761,7 +771,7 @@ Transform:
   m_LocalScale: {x: 16, y: 9, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1447038843
 GameObject:
@@ -787,13 +797,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447038843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 18.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1454483357}
   - {fileID: 284596040}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 861343051}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1454483357 stripped
 Transform:
@@ -810,7 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1498625580}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: PlaneOne (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +854,7 @@ GameObject:
   - component: {fileID: 1743323428}
   - component: {fileID: 1743323430}
   - component: {fileID: 1743323429}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: TurretMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +933,7 @@ GameObject:
   - component: {fileID: 2015523236}
   - component: {fileID: 2015523235}
   - component: {fileID: 2015523234}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,13 +962,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015523232}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ff47ca60bf5bfe4090cdd94f04524ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4213390522871599279, guid: 2a01e924e5a6bd54cb6305d1e11aefab, type: 3}
-  rotationBound: 10
 --- !u!135 &2015523235
 SphereCollider:
   m_ObjectHideFlags: 0

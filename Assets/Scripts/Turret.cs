@@ -3,7 +3,6 @@
 public class Turret : MonoBehaviour
 {
     public GameObject bullet;
-    public float rotationBound = 10.0f;
 
     void Update()
     {
