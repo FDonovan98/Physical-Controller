@@ -4,7 +4,8 @@ public class Turret : MonoBehaviour
 {
     public GameObject bullet;
     public float rotationBound = 10.0f;
-    void FixedUpdate()
+
+    void Update()
     {
         float XY = -Input.GetAxis("Horizontal");
         transform.Rotate(0.0f, 0.0f, XY);

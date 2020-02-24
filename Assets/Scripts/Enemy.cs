@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         }
+        else
+        {
+            Debug.Log("I laugh at your puny attempts to defeat me");
+        }
         
     }
 }
