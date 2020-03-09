@@ -1,0 +1,78 @@
+﻿using UnityEngine;
+using System.Collections.Generic;
+
+public class GameManager : MonoBehaviour
+{
+    public GameObject levelPrefab;
+    public RenderTexture exampleRenderTexture;
+    public Material exampleMaterial;
+    public float renderScreenScaleModifier = 0.9f;
+
+    private List<RenderTexture> renderTextures = new List<RenderTexture>();
+    private List<Material> materials = new List<Material>();
+    private List<GameObject> levels = new List<GameObject>();
+
+    private void Start()
+    {
+        renderTextures.Add(exampleRenderTexture);
+        materials.Add(exampleMaterial);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            levels.Add(Instantiate(levelPrefab));
+            SetUpCamera(levels[levels.Count - 1].GetComponent<Camera>(), levels.Count - 1);
+            SetGameObjectProperties(levels[levels.Count - 1], levels.Count - 1);
+
+            if (levels.Count > 1)
+            {
+                CreateNewRenderTexture();
+                SetUpRenderScreen(levels[levels.Count - 1].transform.GetChild(0).gameObject, levels.Count - 1);
+            }
+        }
+    }
+
+    private void SetUpCamera(Camera camera, int index, RenderTexture renderTexture = null)
+    {
+        // Culling mask is set to 2 + index to to skip over nothing.
+        camera.depth = -index;
+        camera.cullingMask = 1 + index;
+        camera.targetTexture = renderTexture;
+    }
+
+    private void SetUpRenderScreen(GameObject renderScreen, int index)
+    {
+        // Z coordinate is 2 - index in order to get correct layering when rendering.
+        renderScreen.transform.position = new Vector3(0.0f, 0.0f, (2 - index));
+        renderScreen.transform.localScale *= renderScreenScaleModifier;
+
+        if (index > 0)
+        {
+            renderScreen.GetComponent<Renderer>().material = materials[index];
+        }
+    }
+
+    private void CreateNewRenderTexture()
+    {
+        renderTextures.Add(new RenderTexture(renderTextures[0]));
+        materials.Add(new Material(materials[0]));
+        materials[materials.Count - 1].mainTexture = renderTextures[renderTextures.Count - 1];
+    }
+
+    private void SetGameObjectProperties(GameObject level, int index)
+    {
+        level.gameObject.layer = index;
+        foreach (Transform element in level.transform)
+        {
+            element.gameObject.layer = index;
+        }
+
+        if (index == 0)
+        {
+            level.GetComponentInChildren<Turret>().enabled = true;
+        }
+    }
+
+}
