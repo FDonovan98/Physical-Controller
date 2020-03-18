@@ -8,8 +8,14 @@ public abstract class EnemySpawningAIObject : ScriptableObject
     protected float spawnRate = 1.0f;
     protected int layerCount;
     protected float timeSinceLastSpawn = 0.0f;
-
-    public abstract void RunOnStart(int activeLayers);
+    [SerializeField]
+    protected GameObject gameManager;
+    
+    public virtual void RunOnStart(int activeLayers, GameObject gameController)
+    {
+        layerCount = activeLayers;
+        gameManager = gameController;
+    }
     public virtual void RunOnUpdate()
     {
         if (timeSinceLastSpawn > spawnRate)

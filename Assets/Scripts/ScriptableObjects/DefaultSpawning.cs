@@ -8,8 +8,10 @@ public class DefaultSpawning : EnemySpawningAIObject
     private float screenWidthInWorld;
     private float screenHeightInWorld;
     
-    public override void RunOnStart(int activeLayers)
+    public override void RunOnStart(int activeLayers, GameObject gameController)
     {
+        base.RunOnStart(activeLayers, gameController);
+
         timeSinceLastSpawn = 0.0f;
         layerCount = activeLayers;
 
@@ -24,6 +26,6 @@ public class DefaultSpawning : EnemySpawningAIObject
         float randomX = Random.Range(-screenWidthInWorld, screenWidthInWorld);
         float randomY = Random.Range(screenHeightInWorld, screenHeightInWorld + spawnAreaHeight);
 
-        GameObject enemy = Instantiate(enemyTemplate, new Vector3(randomX, randomY, 1.0f), new Quaternion());
+        GameObject enemy = Instantiate(enemyTemplate, new Vector3(randomX, randomY, 1.0f), new Quaternion(), gameManager.transform);
     }
 }

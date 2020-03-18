@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        enemySpawningAI.RunOnStart(0);
+        enemySpawningAI.RunOnStart(0, this.gameObject);
     }
 
     void Update()
