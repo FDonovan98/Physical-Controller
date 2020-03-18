@@ -5,11 +5,8 @@ public class DefaultSpawning : EnemySpawningAIObject
 {
     [SerializeField]
     private int spawnAreaHeight = 3;
-    [SerializeField]
-    private float spawnRate = 1.0f;
-    private Vector2[] spawnArea;
 
-    private float timeSinceLastSpawn = 0.0f;
+    private Vector2[] spawnArea;
     
     public override void RunOnStart(int activeLayers)
     {
@@ -27,18 +24,5 @@ public class DefaultSpawning : EnemySpawningAIObject
             new Vector2(0.0f, Screen.height + spawnAreaHeight),
             new Vector2(Screen.width, Screen.height + spawnAreaHeight)
         };
-    }
-
-    public override void RunOnUpdate()
-    {
-        if (timeSinceLastSpawn > spawnRate)
-        {
-            Debug.Log("Enemy spawned");
-            timeSinceLastSpawn = 0.0f;
-        }
-        else
-        {
-            timeSinceLastSpawn += Time.deltaTime;
-        }
     }
 }

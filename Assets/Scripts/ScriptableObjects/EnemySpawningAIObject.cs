@@ -4,16 +4,30 @@ public abstract class EnemySpawningAIObject : ScriptableObject
 {
     [SerializeField]
     protected MonoBehaviour enemyTemplate;
+    [SerializeField]
+    protected float spawnRate = 1.0f;
     protected int layerCount;
+    protected float timeSinceLastSpawn = 0.0f;
 
     public abstract void RunOnStart(int activeLayers);
-    public abstract void RunOnUpdate();
-    public virtual void EndSpawning()
+    public virtual void RunOnUpdate()
     {
-        enemyTemplate.CancelInvoke();
-        Debug.Log("OnDisable");
+        if (timeSinceLastSpawn > spawnRate)
+        {
+            SpawnEnemy();
+        }
+        else
+        {
+            timeSinceLastSpawn += Time.deltaTime;
+        }
     }
 
+    protected virtual void SpawnEnemy()
+    {
+        Debug.Log("Enemy spawned");
+        timeSinceLastSpawn = 0.0f;
+    }
+    
     public virtual void ChangeLayerCount(int value)
     {
         layerCount = (int)Mathf.Clamp(layerCount + value, 0.0f, layerCount + value);
