@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "DefaultEnemySpawning", menuName = "AI/Enemy Spawning/Defualt")]
 public class DefaultSpawning : EnemySpawningAIObject
 {
     [SerializeField]
@@ -8,11 +9,11 @@ public class DefaultSpawning : EnemySpawningAIObject
     private float spawnRate = 1.0f;
     private Vector2[] spawnArea;
 
-    private MonoBehaviour monoBehaviour;
-    private int layerCount;
+    private float timeSinceLastSpawn = 0.0f;
     
-    public void StartSpawning(int activeLayers)
+    public override void RunOnStart(int activeLayers)
     {
+        timeSinceLastSpawn = 0.0f;
         layerCount = activeLayers;
 
         Vector2[] screenCorners = new Vector2[2] ;
@@ -26,22 +27,18 @@ public class DefaultSpawning : EnemySpawningAIObject
             new Vector2(0.0f, Screen.height + spawnAreaHeight),
             new Vector2(Screen.width, Screen.height + spawnAreaHeight)
         };
-
-        monoBehaviour.InvokeRepeating("SpawnEnemy", 0.0f, spawnRate);
     }
 
-    void OnDisable()
+    public override void RunOnUpdate()
     {
-        monoBehaviour.CancelInvoke();
-    }
-
-    public void ChangeLayerCount(int value)
-    {
-        layerCount = (int)Mathf.Clamp(layerCount + value, 0.0f, layerCount + value);
-    }
-
-    protected override void SpawnEnemy()
-    {
-
+        if (timeSinceLastSpawn > spawnRate)
+        {
+            Debug.Log("Enemy spawned");
+            timeSinceLastSpawn = 0.0f;
+        }
+        else
+        {
+            timeSinceLastSpawn += Time.deltaTime;
+        }
     }
 }

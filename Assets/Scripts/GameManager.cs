@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     private Text scoreText;
+    [SerializeField]
+    private EnemySpawningAIObject enemySpawningAI;
     private int scoreValue = 0;
     private int currentLayer = 0;
     private int totalLayers = 0;
@@ -15,4 +17,26 @@ public class GameManager : MonoBehaviour
         scoreValue++;
         scoreText.text = "Score: " + scoreValue;
     }
+
+    void Start()
+    {
+        enemySpawningAI.RunOnStart(0);
+    }
+
+    void Update()
+    {
+        enemySpawningAI.RunOnUpdate();
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            enemySpawningAI.EndSpawning();
+            // SwitchAI();
+        }
+    }
+
+    // private void SwitchAI()
+    // {
+    //     enemySpawningAI = newAI;
+    //     enemySpawningAI.RunOnStart();
+    // }
 }
