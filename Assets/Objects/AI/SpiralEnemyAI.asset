@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7c2fccd7bfe7443bc5fff1092764ae, type: 3}
-  m_Name: DefaultEnemySpawning
+  m_Script: {fileID: 11500000, guid: 49254a320f155d24388a2c608a17bc67, type: 3}
+  m_Name: SpiralEnemyAI
   m_EditorClassIdentifier: 
-  enemyTemplate: {fileID: 2402713877354509881, guid: dfa0b396da310fa4fb0114ebc6a78886,
-    type: 3}
-  spawnRate: 2
-  spawnAreaHeight: 3
+  fallSpeed: 1

@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class FallingEnemy : MonoBehaviour
 {
     [SerializeField]
-    private BaseEnemyAIObject aI;
-    private Bullet.EnemyType type = Bullet.EnemyType.Kill;
+    protected BaseEnemyAIObject aI;
+    protected Bullet.EnemyType type = Bullet.EnemyType.Kill;
+
+    private float timeAlive = 0.0f;
 
     void Update()
     {
-        aI.RunOnUpdate(this.gameObject);
+        aI.RunOnUpdate(this.gameObject, timeAlive);
+        timeAlive += Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == this.gameObject.layer && other.gameObject.tag == "Bullet")
         {

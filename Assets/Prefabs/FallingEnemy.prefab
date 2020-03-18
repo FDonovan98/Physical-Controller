@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3860229315637210789}
   - component: {fileID: 3617601133698058034}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: FallingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e090c4e31b3bdac40831b3c03dd84593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aI: {fileID: 11400000, guid: 09bef5aae2a745e409062f545e0bc230, type: 2}
+  aI: {fileID: 11400000, guid: 4daf835c80577684998f6e8aa6b38336, type: 2}
 --- !u!61 &3860229315637210789
 BoxCollider2D:
   m_ObjectHideFlags: 0
