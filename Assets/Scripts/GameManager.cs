@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Text scoreText;
 
-    // Update is called once per frame
-    void Update()
+    private int scoreValue = 0;
+    private int currentLayer = 0;
+    private int totalLayers = 0;
+
+    private void ChangeScore(int value)
     {
-        
+        scoreValue++;
+        scoreText.text = "Score: " + scoreValue;
     }
 }

@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField]
+    private UIInterface uIInterface;
     private Bullet.EnemyType type = Bullet.EnemyType.Kill;
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
         {
             if (other.GetComponent<Bullet>().type == type)
             {
+                SendMessageUpwards("ChangeScore", 1);
                 Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             }
             else
