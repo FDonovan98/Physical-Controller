@@ -702,6 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 5807336828877630556}
+  enemySpawningAI: {fileID: 11400000, guid: e3f1a2b2e001b7644a6fc0c8b5bd2f16, type: 2}
 --- !u!4 &1793621953
 Transform:
   m_ObjectHideFlags: 0

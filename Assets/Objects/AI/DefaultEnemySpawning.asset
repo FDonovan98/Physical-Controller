@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7c2fccd7bfe7443bc5fff1092764ae, type: 3}
   m_Name: DefaultEnemySpawning
   m_EditorClassIdentifier: 
-  spawnAreaHeight: 3
+  enemyTemplate: {fileID: 2402713877354509881, guid: 9218c4df08aa2ed4c9cc57b125e0cc2f,
+    type: 3}
   spawnRate: 1
+  spawnAreaHeight: 3

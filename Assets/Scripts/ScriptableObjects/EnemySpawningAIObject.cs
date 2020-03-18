@@ -3,7 +3,7 @@
 public abstract class EnemySpawningAIObject : ScriptableObject
 {
     [SerializeField]
-    protected MonoBehaviour enemyTemplate;
+    protected GameObject enemyTemplate;
     [SerializeField]
     protected float spawnRate = 1.0f;
     protected int layerCount;
@@ -15,6 +15,7 @@ public abstract class EnemySpawningAIObject : ScriptableObject
         if (timeSinceLastSpawn > spawnRate)
         {
             SpawnEnemy();
+            timeSinceLastSpawn = 0.0f;
         }
         else
         {
@@ -27,7 +28,7 @@ public abstract class EnemySpawningAIObject : ScriptableObject
         Debug.Log("Enemy spawned");
         timeSinceLastSpawn = 0.0f;
     }
-    
+
     public virtual void ChangeLayerCount(int value)
     {
         layerCount = (int)Mathf.Clamp(layerCount + value, 0.0f, layerCount + value);
