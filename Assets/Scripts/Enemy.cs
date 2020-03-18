@@ -2,8 +2,6 @@
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private UIInterface uIInterface;
     private Bullet.EnemyType type = Bullet.EnemyType.Kill;
     void OnTriggerEnter2D(Collider2D other)
     {
