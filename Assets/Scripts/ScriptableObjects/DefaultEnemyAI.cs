@@ -7,6 +7,9 @@ public class DefaultEnemyAI : BaseEnemyAIObject
     private float fallSpeed = 1.0f;
     protected override void Movement(GameObject agent)
     {
-        agent.GetComponent<Rigidbody2D>().velocity += new Vector2(0.0f, -fallSpeed * Time.deltaTime);
+        float xVel = 0.0f;
+        float yVel = agent.GetComponent<Rigidbody2D>().velocity.y;
+        yVel += -fallSpeed * Time.deltaTime;
+        agent.GetComponent<Rigidbody2D>().velocity = new Vector2(xVel, yVel);
     }
 }

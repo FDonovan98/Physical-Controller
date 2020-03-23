@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee7c2fccd7bfe7443bc5fff1092764ae, type: 3}
-  m_Name: DefaultEnemySpawning
+  m_Script: {fileID: 11500000, guid: 660a8288d48b32b44bf28517580503d0, type: 3}
+  m_Name: CommNet
   m_EditorClassIdentifier: 
-  enemyTemplate: {fileID: 2402713877354509881, guid: 9218c4df08aa2ed4c9cc57b125e0cc2f,
-    type: 3}
-  spawnRate: 2
-  spawnAreaHeight: 3
