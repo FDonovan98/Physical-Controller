@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpiralEnemyAI
   m_EditorClassIdentifier: 
   fallSpeed: 0.7
-  xSpeed: 500
+  xSpeed: 50
